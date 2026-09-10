@@ -1,127 +1,124 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { Menu, X } from "lucide-react"; // Icons for mobile menu
+import { Menu, X } from "lucide-react";
 
-import logo from "../assets/navbar_logo.svg"; // Make sure the path is correct
+import logo from "../assets/navbar_logo.svg";
 import Link from "next/link";
 
 const Navbar = () => {
-  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY.current) {
-        setHidden(true);
-      } else {
-        setHidden(false);
-      }
-      lastScrollY.current = window.scrollY;
+      setScrolled(window.scrollY > 8);
     };
-
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      // Close menu if clicking outside and menu is open
-      if (menuOpen && !target.closest('.mobile-menu') && !target.closest('.menu-button')) {
+      if (
+        menuOpen &&
+        !target.closest(".mobile-menu") &&
+        !target.closest(".menu-button")
+      ) {
         setMenuOpen(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [menuOpen]);
 
-  // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (menuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
-
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [menuOpen]);
+
+  const links = [
+    { href: "/#about", label: "About" },
+    { href: "/events", label: "Events" },
+    { href: "/#gallery", label: "Gallery" },
+    { href: "/#collaboration", label: "Collaborate" },
+  ];
 
   return (
     <nav
-      className={`z-[1000] fixed top-0 left-0 w-full h-[68px] bg-transparent duration-300 ${
-        hidden ? "-translate-y-[100px]" : "translate-y-0"
+      className={`z-[1000] fixed top-0 left-0 w-full bg-background transition-all duration-200 ${
+        scrolled || menuOpen ? "border-b border-border" : "border-b border-transparent"
       }`}
     >
-      <div className={`bg-[#C49A32] text-black m-3 py-3 px-6 h-[68px] flex items-center justify-between duration-300 ${menuOpen?`rounded-t-[8px]`:`rounded-[8px]`}  relative`}>
-        {/* Logo Section */}
-        <Link href="/" className="flex items-center" >
-          <Image src={logo} alt="Logo" width={180} height={180} />
+      <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 h-[72px] flex items-center justify-between">
+        <Link href="/" className="flex items-center" aria-label="DotSlash home">
+          <Image src={logo} alt="DotSlash CET" width={150} height={40} />
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8 text-lg font-medium">
-          {/* <Link href="/#events" className="hover:underline font-unbounded">
-          Events
-          </Link> */}
-          <Link href="/#gallery" className="hover:underline font-unbounded">
-          Gallery
-          </Link>
-          <Link href="/events" target="_blank" className="bg-black text-[#C49A32] px-10 py-2 rounded-full font-medium font-unbounded hover:opacity-80 group relative overflow-hidden">
-            <div className="group-hover:-translate-y-11 ease-in-out-expo transition duration-700 ease-[cubic-bezier(0, 0, 0, 1)]">
-              Events
-            </div>
-            <div className="absolute left-0 top-16 group-hover:top-0 transition-all delay-75 duration-700 ease-in-out-expo text-black bg-[#D1A83A] w-full h-full flex items-center justify-center rounded-full border-black border-[2px]">
-              Events
-            </div>
-          </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-black focus:outline-none menu-button"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-
-        {/* Mobile Menu - Dropdown from navbar */}
-        <div
-          className={`mobile-menu absolute top-full w-full left-0 right-0 bg-[#C49A32] rounded-b-[8px] flex flex-col items-center gap-6 py-6 transition-all duration-300 shadow-lg md:hidden ${
-            menuOpen 
-              ? "opacity-100 translate-y-0 pointer-events-auto" 
-              : "opacity-0 -translate-y-4 pointer-events-none"
-          }`}
-        >
-          {/* <Link
-            href="/#events" 
-            className="hover:underline font-unbounded text-lg"
-            onClick={() => setMenuOpen(false)}
-          >
-            Events
-          </Link> */}
-          <Link
-            href="/#gallery" 
-            className="hover:underline font-unbounded text-lg"
-            onClick={() => setMenuOpen(false)}
-          >
-            Gallery
-          </Link>
+        <div className="hidden md:flex items-center gap-10">
+          {links.map((link, i) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-sm !font-body font-medium tracking-wide uppercase transition-colors duration-200 ${
+                i === 0
+                  ? "text-foreground"
+                  : "text-foreground-muted hover:text-foreground"
+              } hover:text-primary`}
+            >
+              {link.label}
+            </Link>
+          ))}
           <Link
             href="/events"
-            className="bg-black text-[#C49A32] px-10 py-2 rounded-full font-medium font-unbounded hover:opacity-80 text-lg"
-            onClick={() => setMenuOpen(false)}
+            className="font-display font-semibold uppercase tracking-[0.08em] text-xs bg-primary text-white px-7 py-3 border border-primary transition-all duration-200 hover:bg-primary-hover hover:-translate-y-0.5"
           >
-            Events
+            Join now →
           </Link>
         </div>
+
+        <button
+          className="md:hidden text-foreground focus:outline-none menu-button"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+        >
+          {menuOpen ? <X size={26} /> : <Menu size={26} />}
+        </button>
+      </div>
+
+      <div
+        className={`mobile-menu md:hidden bg-background border-t border-border flex flex-col gap-6 px-6 py-8 transition-all duration-200 ${
+          menuOpen
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-3 pointer-events-none absolute inset-x-0"
+        }`}
+      >
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={() => setMenuOpen(false)}
+            className="font-body text-base font-medium uppercase tracking-wide text-foreground-muted hover:text-primary transition-colors"
+          >
+            {link.label}
+          </Link>
+        ))}
+        <Link
+          href="/events"
+          onClick={() => setMenuOpen(false)}
+          className="font-display font-semibold uppercase tracking-[0.08em] text-sm bg-primary text-white px-7 py-3.5 border border-primary text-center"
+        >
+          Join now →
+        </Link>
       </div>
     </nav>
   );
