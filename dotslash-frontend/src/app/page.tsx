@@ -6,24 +6,22 @@ import Events from "./components/events";
 import Footer from "./components/footer";
 import Tshirt from "./components/Tshirt";
 import NotJustAFest from "./components/NotJustAFest";
-import Navbar from "./components/navbar";
 import Landing from "./components/Landing";
-
+import CTABand from "./components/CTABand";
 
 export default function Home() {
   return (
-    <>
-      <div className="flex flex-col w-full gap-10 overflow-hidden bg-black">
-        <Landing />
-        <Welcome />
-        <Countdown />
-        <Events />
-        <NotJustAFest />
-        <Tshirt />
-        <Gallery />
-        <CollaborateSection />
-        <Footer />
-      </div>
-    </>
+    <div className="flex flex-col w-full overflow-hidden bg-background">
+      <Landing />
+      <Welcome />
+      <Countdown />
+      <Events />
+      <NotJustAFest />
+      <Tshirt />
+      <Gallery />
+      <CollaborateSection />
+      <CTABand />
+      <Footer />
+    </div>
   );
 }
