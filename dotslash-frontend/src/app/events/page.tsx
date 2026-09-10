@@ -2,10 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import EventCard, { EventData } from '../lib/EventCard';
-import { client } from '../../sanity/client'; // Adjust path as needed
-import { Unbounded } from 'next/font/google';
-
-const unbounded = Unbounded({ weight: "400", style: "normal", preload: false });
+import { client } from '../../sanity/client';
 
 const EventsPage = () => {
   const [events, setEvents] = useState<EventData[]>([]);
@@ -14,7 +11,6 @@ const EventsPage = () => {
   useEffect(() => {
     async function fetchEvents() {
       try {
-        // Query to fetch all events sorted by date
         const query = `*[_type == "Events"] {
           _id,
           title,
@@ -29,19 +25,15 @@ const EventsPage = () => {
         const data = await client.fetch<EventData[]>(query);
 
         if (data && data.length > 0) {
-          // Add isSanityData flag to all events
           const processedData = data.map(event => ({
             ...event,
             isSanityData: true
           }));
 
-          // Sort events: featured first, then by date (newest first)
           const sortedEvents = processedData.sort((a, b) => {
-            // First sort by featured status
             if (a.featured && !b.featured) return -1;
             if (!a.featured && b.featured) return 1;
 
-            // Then sort by date (newest first)
             const dateA = new Date(a.date);
             const dateB = new Date(b.date);
             return dateB.getTime() - dateA.getTime();
@@ -64,20 +56,19 @@ const EventsPage = () => {
 
   if (loading) {
     return (
-      <div className="bg-black w-full min-h-screen flex justify-center items-center">
-        <div className="text-white text-xl">Loading events...</div>
+      <div className="bg-background w-full min-h-screen flex justify-center items-center">
+        <div className="font-body text-foreground-muted text-xl">Loading events...</div>
       </div>
     );
   }
 
-  // If no events found
   if (events.length === 0) {
     return (
-      <div className="bg-black w-full min-h-screen flex flex-col justify-center items-center px-4 py-20 mt-[3rem]">
-        <h1 className={`${unbounded.className} text-4xl md:text-6xl text-[#D1A83A] mb-6`}>
-          EVENTS
+      <div className="bg-background w-full min-h-screen flex flex-col justify-center items-center px-4 py-20 pt-40">
+        <h1 className="font-display font-semibold uppercase text-foreground text-4xl md:text-6xl text-primary mb-6">
+          Events.
         </h1>
-        <div className="text-white text-xl text-center">
+        <div className="font-body text-foreground-muted text-xl text-center">
           No events found. Check back later for upcoming events.
         </div>
       </div>
@@ -85,21 +76,25 @@ const EventsPage = () => {
   }
 
   return (
-    <div className="bg-black min-h-screen px-4 py-20 mt-[3rem]">
-      <div className='flex flex-col items-center justify-center'>
-        <div className={`${unbounded.className} text-4xl md:text-6xl text-[#D1A83A] mb-12`}>
-          EVENTS
-        </div>
+    <div className="bg-background min-h-screen px-5 md:px-10 lg:px-16 py-20 pt-40 max-w-[1440px] mx-auto">
+      <div className="flex items-center gap-4 font-body text-xs uppercase tracking-[0.3em] text-foreground-subtle mb-6">
+        <span>Events</span>
+        <span className="flex-1 border-t border-dashed border-foreground/25" />
+        <span className="text-primary">/</span>
+      </div>
 
-        <div className="flex flex-col gap-8 md:gap-10">
-          {events.map((event) => (
-            <EventCard
-              key={event._id}
-              event={event}
-              layout="large"
-            />
-          ))}
-        </div>
+      <h1 className="font-display font-semibold uppercase leading-[0.95] tracking-tight text-foreground text-[clamp(3rem,8vw,7.5rem)] mb-14 md:mb-20">
+        Events<span className="text-primary">.</span>
+      </h1>
+
+      <div className="flex flex-col gap-8 md:gap-10">
+        {events.map((event) => (
+          <EventCard
+            key={event._id}
+            event={event}
+            layout="large"
+          />
+        ))}
       </div>
     </div>
   );
