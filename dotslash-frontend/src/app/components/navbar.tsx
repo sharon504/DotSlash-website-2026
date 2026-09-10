@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 import logo from "../assets/navbar_logo.svg";
+import logoLight from "../assets/logo_light.svg";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -66,7 +67,7 @@ const Navbar = () => {
     >
       <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 h-[72px] flex items-center justify-between">
         <Link href="/" className="flex items-center" aria-label="DotSlash home">
-          <Image src={logo} alt="DotSlash CET" width={150} height={40} />
+          <Image src={transparent ? logoLight : logo} alt="DotSlash CET" width={150} height={40} />
         </Link>
 
         <div className="hidden md:flex items-center gap-10">
