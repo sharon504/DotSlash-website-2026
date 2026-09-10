@@ -1,69 +1,148 @@
 import React from 'react'
-import dotslash from "../assets/dotslash.svg"
 import Image from 'next/image'
-import { Noto_Sans, Unbounded } from 'next/font/google';
+import Link from 'next/link'
+import logo from "../assets/logo_light.svg"
 import { Instagram, Linkedin, Twitter } from 'lucide-react';
 
-const unbounded = Unbounded({ weight: '400', style: 'normal', preload:false });
-const notoSans = Noto_Sans({ weight: '400', style: 'normal', preload:false });
+const socials = [
+  { href: "https://www.instagram.com/dotslash.cet/", label: "Instagram", Icon: Instagram },
+  { href: "https://in.linkedin.com/company/dotslash-cse-cet", label: "LinkedIn", Icon: Linkedin },
+  { href: "https://x.com/dotslash_cet?lang=en", label: "Twitter", Icon: Twitter },
+];
+
+const explore = [
+  { href: "/#about", label: "About" },
+  { href: "/#events", label: "Events" },
+  { href: "/#gallery", label: "Gallery" },
+  { href: "/#collaboration", label: "Collaborate" },
+];
+
+const quick = [
+  { href: "/events", label: "Register" },
+  { href: "/#tshirt", label: "Get the tee" },
+  { href: "https://forms.gle/r4VKAswC8zZhFrdY9", label: "For clubs", external: true },
+];
+
+const contact = [
+  { name: "Geevees", phone: "+91 95623 20988" },
+  { name: "Arya Vijayan", phone: "+91 77364 73139" },
+];
 
 const Footer = () => {
   return (
-    <div className='bg-[#D1A83A] w-screen px-[20px] lg:px-[54px] pt-[50px] text-black'>
-
-        <div className='flex flex-col gap-[38px] lg:flex-row lg:items-start lg:gap-[350px] lg:mb-[120px]'>
-            <div className="flex flex-col gap-6">
-                <Image src={dotslash} alt="dotslash"/>
-                
-                {/* Social Media Icons */}
-                <div className="flex space-x-10 mt-2 ml-[3.2rem]">
-                    <a href="https://www.instagram.com/dotslash.cet/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                        <Instagram size={30} className="hover:scale-110 transition-transform" />
-                    </a>
-                    <a href="https://in.linkedin.com/company/dotslash-cse-cet" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <Linkedin size={30} className="hover:scale-110 transition-transform" />
-                    </a>
-                    <a href="https://x.com/dotslash_cet?lang=en" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                        <Twitter size={30} className="hover:scale-110 transition-transform" />
-                    </a>
-                </div>
-            </div>
-            
-            <div className='flex flex-wrap md:flex-row gap-x-[80px] gap-y-[48px] lg:gap-x-[143px] mb-5'>
-                <div className={`flex flex-col gap-[16px]  text-[16px] ${notoSans.className}`}>
-                    <a href='#home'>Home</a>
-                    <a href='#events'>Events</a>
-                    <a href='#gallery'>Gallery</a>
-                </div>
-                <div className={`flex flex-col gap-[16px]  text-[16px] ${notoSans.className}`}>
-                    <a href='#collaboration' >For Clubs</a>
-                    <a href='#collaboration'>For Sponsors</a>
-                    <a href='#tshirt'>Get T-Shirt</a>
-                </div>
-                <div className={`flex flex-col gap-[16px] text-[16px] ${notoSans.className}`}>
-                    <div className="font-semibold">Contact:</div>
-                    <div>
-                        <div className="font-medium">Geevees</div>
-                        <div className="text-sm">+91 95623 20988</div>
-                    </div>
-                    <div>
-                        <div className="font-medium">Arya Vijayan</div>
-                        <div className="text-sm">+91 77364 73139</div>
-                    </div>
-                    <div>
-                        dotslashcet.cse@gmail.com
-                    </div>
-                </div>
-            </div>
+    <footer className="bg-foreground text-logo-light">
+      <div className="max-w-[1440px] w-full mx-auto px-5 md:px-10 lg:px-16 pt-16 md:pt-24">
+        {/* Technical top bar */}
+        <div className="flex flex-wrap items-center justify-between gap-4 font-body text-xs uppercase tracking-[0.3em] text-logo-light/60 pb-8 border-b border-logo-light/20">
+          <span>
+            DotSlash <span className="font-display text-primary">/</span> CET
+          </span>
+          <span className="hidden md:inline">08 — Contact</span>
+          <span className="text-primary">/ 2026</span>
         </div>
 
-        <div className={`text-[39px] lg:text-[96px] ${unbounded.className} uppercase leading-tight w-full py-[30px] border-b-[1px] border-b-black`}>
-            The power <br/> to <u>create</u>
+        {/* Main grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 py-14 md:py-20">
+          {/* Brand */}
+          <div className="lg:col-span-5 flex flex-col gap-8">
+            <Image src={logo} alt="DotSlash CET" className="w-[300px] md:w-[380px] h-auto" />
+            <p className="font-body text-base text-logo-light/70 leading-relaxed max-w-md">
+              The techno-cultural festival of the CSE department, CET. Built for
+              people who make things.
+            </p>
+            <div className="flex items-center gap-6 pt-2">
+              {socials.map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="text-logo-light/80 hover:text-primary transition-colors duration-200"
+                >
+                  <Icon size={22} />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Link columns */}
+          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-10">
+            <div className="flex flex-col gap-4">
+              <h4 className="font-body text-xs uppercase tracking-[0.3em] text-logo-light/50 mb-2">
+                Explore
+              </h4>
+              {explore.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="font-body text-base text-logo-light/85 hover:text-primary transition-colors duration-200 w-fit"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <h4 className="font-body text-xs uppercase tracking-[0.3em] text-logo-light/50 mb-2">
+                Get Moving
+              </h4>
+              {quick.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  className="font-body text-base text-logo-light/85 hover:text-primary transition-colors duration-200 w-fit"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
+            <div className="flex flex-col gap-4">
+              <h4 className="font-body text-xs uppercase tracking-[0.3em] text-logo-light/50 mb-2">
+                Contact
+              </h4>
+              {contact.map((person) => (
+                <div key={person.name}>
+                  <div className="font-body font-medium text-logo-light/90">{person.name}</div>
+                  <div className="font-body text-sm text-logo-light/60">{person.phone}</div>
+                </div>
+              ))}
+              <a
+                href="mailto:dotslashcet.cse@gmail.com"
+                className="font-body text-sm text-logo-light/60 hover:text-primary transition-colors duration-200 w-fit break-all"
+              >
+                dotslashcet.cse@gmail.com
+              </a>
+            </div>
+          </div>
         </div>
-        <div className='w-full flex flex-row items-center justify-center uppercase py-[20px]'>
-            Dotslash CET
+
+        {/* Oversized closing line */}
+        <div className="border-t border-logo-light/20 pt-10 pb-4">
+          <div className="flex items-center gap-4 font-body text-xs uppercase tracking-[0.3em] text-logo-light/40 mb-8">
+            <span className="text-primary">+</span>
+            <span className="flex-1 border-t border-dashed border-logo-light/25" />
+            <span>Back to top</span>
+          </div>
+          <Link
+            href="/#landing"
+            className="block font-display font-semibold uppercase leading-[0.92] tracking-tight text-logo-light text-[clamp(3rem,10vw,10rem)] hover:text-white transition-colors duration-200"
+          >
+            Keep <span className="text-primary">building.</span>
+          </Link>
         </div>
-    </div>
+
+        {/* Bottom bar */}
+        <div className="flex flex-wrap items-center justify-between gap-4 border-t border-logo-light/20 py-6 font-body text-xs uppercase tracking-[0.2em] text-logo-light/60">
+          <span>© 2026 DotSlash CET</span>
+          <span className="hidden md:inline text-primary">/</span>
+          <span>Built by the people who ship</span>
+        </div>
+      </div>
+    </footer>
   )
 }
 
