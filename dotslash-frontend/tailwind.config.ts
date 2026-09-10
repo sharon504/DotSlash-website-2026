@@ -24,7 +24,7 @@ export default {
       },
       fontFamily: {
         display: ['"Clash Display"', '"Satoshi"', "sans-serif"],
-        body: ["Satoshi", "sans-serif"],
+        body: ['"Myriad Pro"', "Satoshi", "sans-serif"],
       },
     },
   },
