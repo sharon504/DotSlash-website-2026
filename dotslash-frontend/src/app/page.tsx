@@ -5,7 +5,6 @@ import CollaborateSection from "./components/CollaborateSection";
 import Events from "./components/events";
 import Footer from "./components/footer";
 import Tshirt from "./components/Tshirt";
-import NotJustAFest from "./components/NotJustAFest";
 import Landing from "./components/Landing";
 import CTABand from "./components/CTABand";
 
@@ -16,7 +15,6 @@ export default function Home() {
       <Welcome />
       <Countdown />
       <Events />
-      <NotJustAFest />
       <Tshirt />
       <Gallery />
       <CollaborateSection />
