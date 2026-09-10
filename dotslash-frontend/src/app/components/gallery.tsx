@@ -9,7 +9,8 @@ import img4 from "@/app/assets/gallery/7.jpg";
 import img5 from "@/app/assets/gallery/4.jpg";
 import img6 from "@/app/assets/gallery/5.jpg";
 import img7 from "@/app/assets/gallery/9.jpg";
-import img8 from "@/app/assets/gallery/lab.jpg";
+import img8 from "@/app/assets/gallery/lab.jpg"
+
 
 import { motion } from "framer-motion";
 
@@ -25,31 +26,31 @@ const plates: Plate[] = [
     src: img1,
     alt: "Cosmic portal with person standing",
     md: "md:col-span-2 md:row-span-2",
-    mobile: "aspect-[4/3]",
+    mobile: "aspect-[16/9]",
   },
   {
     src: img2,
     alt: "Glowing crater",
     md: "md:row-span-2",
-    mobile: "aspect-[3/4]",
+    mobile: "aspect-[16/9]",
   },
   {
     src: img3,
     alt: "Fallen statue",
     md: "md:row-span-1",
-    mobile: "aspect-square",
+    mobile: "aspect-[16/9]",
   },
   {
     src: img4,
     alt: "Sunset landscape",
     md: "md:row-span-1",
-    mobile: "aspect-square",
+    mobile: "aspect-[16/9]",
   },
   {
     src: img5,
     alt: "Crowned statue",
     md: "md:row-span-1",
-    mobile: "aspect-[4/3]",
+    mobile: "aspect-[16/9]",
   },
   {
     src: img6,
@@ -61,14 +62,15 @@ const plates: Plate[] = [
     src: img7,
     alt: "Ancient stone masks along a wall",
     md: "md:row-span-1",
-    mobile: "aspect-[4/3]",
+    mobile: "aspect-[16/9]",
   },
   {
-    src: img8,
-    alt: "Face with glowing cracks",
-    md: "md:row-span-1",
-    mobile: "aspect-[4/3]",
-  },
+  src: img8,
+  alt: "Face with glowing cracks",
+  md: "hidden md:hidden",
+  mobile: "aspect-[16/9]",
+},
+
 ];
 
 const Gallery = () => {
@@ -103,12 +105,12 @@ const Gallery = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" as const }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5"
+          className="grid grid-cols-1 md:grid-cols-4 md:auto-rows-[220px] gap-4 md:gap-5"
         >
           {plates.map((plate, i) => (
             <div
               key={i}
-              className={`relative overflow-hidden bg-surface border border-border ${plate.md} ${plate.mobile}`}
+              className={`relative overflow-hidden bg-surface border border-border ${plate.md} ${plate.mobile} md:aspect-auto`}
             >
               <Image
                 src={plate.src}
