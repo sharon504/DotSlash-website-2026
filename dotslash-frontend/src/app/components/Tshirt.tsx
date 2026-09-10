@@ -102,7 +102,7 @@ export default function Tshirt() {
               <Image
                 src="/tees-story.jpg"
                 alt="DotSlash '26 poster"
-                className="object-cover w-full h-full"
+                className="object-cover w-full h-full opacity-90"
                 width={1200}
                 height={1500}
                 priority
