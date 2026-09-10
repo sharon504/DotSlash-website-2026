@@ -1,18 +1,21 @@
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 import logo from "../assets/navbar_logo.svg";
+import logoLight from "../assets/logo_light.svg";
 import Link from "next/link";
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 8);
+      setScrolled(window.scrollY > window.innerHeight - 80);
     };
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -53,15 +56,18 @@ const Navbar = () => {
     { href: "/#collaboration", label: "Collaborate" },
   ];
 
+  const transparent = pathname === "/" && !scrolled && !menuOpen;
+  const solid = !transparent;
+
   return (
     <nav
-      className={`z-[1000] fixed top-0 left-0 w-full bg-background transition-all duration-200 ${
-        scrolled || menuOpen ? "border-b border-border" : "border-b border-transparent"
+      className={`z-[1000] fixed top-0 left-0 w-full transition-colors duration-200 ${
+        solid ? "bg-background border-b border-border" : "bg-transparent border-b border-transparent"
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-5 md:px-10 lg:px-16 h-[72px] flex items-center justify-between">
         <Link href="/" className="flex items-center" aria-label="DotSlash home">
-          <Image src={logo} alt="DotSlash CET" width={150} height={40} />
+          <Image src={transparent ? logoLight : logo} alt="DotSlash CET" width={150} height={40} />
         </Link>
 
         <div className="hidden md:flex items-center gap-10">
@@ -70,9 +76,13 @@ const Navbar = () => {
               key={link.href}
               href={link.href}
               className={`text-sm !font-body font-medium tracking-wide uppercase transition-colors duration-200 ${
-                i === 0
-                  ? "text-foreground"
-                  : "text-foreground-muted hover:text-foreground"
+                transparent
+                  ? i === 0
+                    ? "text-white"
+                    : "text-logo-light/90 hover:text-white"
+                  : i === 0
+                    ? "text-foreground"
+                    : "text-foreground-muted hover:text-foreground"
               } hover:text-primary`}
             >
               {link.label}
@@ -87,7 +97,9 @@ const Navbar = () => {
         </div>
 
         <button
-          className="md:hidden text-foreground focus:outline-none menu-button"
+          className={`md:hidden focus:outline-none menu-button transition-colors duration-200 ${
+            transparent ? "text-logo-light" : "text-foreground"
+          }`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
