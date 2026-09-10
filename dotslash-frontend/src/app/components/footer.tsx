@@ -40,6 +40,16 @@ const Footer = () => {
           <span className="text-primary">/ 2026</span>
         </div>
 
+        {/* Oversized heading */}
+        <div className="pt-12 md:pt-16 pb-4">
+          <Link
+            href="/#landing"
+            className="block font-display font-semibold uppercase leading-[0.92] tracking-tight text-logo-light text-[clamp(3rem,10vw,10rem)] hover:text-white transition-colors duration-200"
+          >
+            Keep <span className="text-primary">building.</span>
+          </Link>
+        </div>
+
         {/* Main grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 py-14 md:py-20">
           {/* Brand */}
@@ -117,16 +127,6 @@ const Footer = () => {
               </a>
             </div>
           </div>
-        </div>
-
-        {/* Oversized closing line */}
-        <div className="border-t border-logo-light/20 pt-10 pb-4">
-          <Link
-            href="/#landing"
-            className="block font-display font-semibold uppercase leading-[0.92] tracking-tight text-logo-light text-[clamp(3rem,10vw,10rem)] hover:text-white transition-colors duration-200"
-          >
-            Keep <span className="text-primary">building.</span>
-          </Link>
         </div>
 
         {/* Bottom bar */}
