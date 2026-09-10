@@ -26,7 +26,7 @@ const Landing = () => {
       >
         <source src="/videos/landing.mp4" type="video/mp4" />
       </video>
-      <div className="absolute inset-0 bg-foreground/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/85" />
 
       {/* Technical top bar */}
       <div className="relative z-10 max-w-[1440px] w-full mx-auto px-5 md:px-10 lg:px-16 flex items-center justify-between font-body text-xs uppercase tracking-[0.2em] text-logo-light/80">
