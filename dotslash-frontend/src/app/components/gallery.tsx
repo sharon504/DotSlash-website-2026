@@ -1,247 +1,95 @@
 "use client"
 
-import React, { useRef } from 'react';
-import Image from 'next/image';
+import React from 'react';
+import Image, { type StaticImageData } from 'next/image';
 import img1 from '@/app/assets/gallery/1.jpg'
 import img2 from '@/app/assets/gallery/2.jpg'
 import img3 from '@/app/assets/gallery/3.jpg'
 import img4 from '@/app/assets/gallery/7.jpg'
 import img5 from '@/app/assets/gallery/4.jpg'
-import img6 from '@/app/assets/gallery/5.jpg' // bottom right
-import img7 from '@/app/assets/gallery/9.jpg' // bottom left large
-import img8 from '@/app/assets/gallery/lab.jpg' // bottom
+import img6 from '@/app/assets/gallery/5.jpg'
+import img7 from '@/app/assets/gallery/9.jpg'
+import img8 from '@/app/assets/gallery/lab.jpg'
 
-import background from '@/app/assets/bg_gallery.jpeg'
+import { motion } from 'framer-motion'
 
-import { useScroll, motion, useTransform, cubicBezier } from 'framer-motion'
+type Plate = {
+  src: StaticImageData;
+  alt: string;
+  md: string;
+  mobile: string;
+};
+
+const plates: Plate[] = [
+  { src: img1, alt: "Cosmic portal with person standing", md: "md:col-span-2 md:row-span-2", mobile: "aspect-[4/3]" },
+  { src: img2, alt: "Glowing crater", md: "md:row-span-2", mobile: "aspect-[3/4]" },
+  { src: img3, alt: "Fallen statue", md: "md:row-span-1", mobile: "aspect-square" },
+  { src: img4, alt: "Sunset landscape", md: "md:row-span-1", mobile: "aspect-square" },
+  { src: img5, alt: "Crowned statue", md: "md:row-span-1", mobile: "aspect-[4/3]" },
+  { src: img6, alt: "Sunset landscape", md: "md:col-span-2 md:row-span-1", mobile: "aspect-[16/9]" },
+  { src: img7, alt: "Ancient stone masks along a wall", md: "md:row-span-1", mobile: "aspect-[4/3]" },
+  { src: img8, alt: "Face with glowing cracks", md: "md:row-span-1", mobile: "aspect-[4/3]" },
+];
 
 const Gallery = () => {
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start']
-  })
-  
-  const y = useTransform(scrollYProgress, [0, 1], ["-10vh", "12vh"], { ease: cubicBezier(0.17, 0.67, 0.83, 0.67) })
   return (
-    <div id="gallery" className="w-full relative  ">
-       <div className="absolute inset-0 -z-[100] "style={{ transform: 'translateY(-280px)', opacity:"0.44" }}>
-        <Image
-          src={background}
-          alt="Background"
-          fill
-          style={{ objectFit: 'cover' }}
-          priority 
-        />
-      </div>
-      <div className="max-w-[1440px] mx-auto relative py-[169px] min-h-[1649px]">
-       
-        <h1 className="font-[Unbounded] text-8xl text-white absolute left-[69px] top-[130px] hidden md:block">GLIMPSES OF DOTSLASH &apos;23</h1>
-        
-        {/* Desktop Layout */}
-        <div className="hidden md:block relative w-[1240px] h-[1076px] mx-auto mt-[206px]">
-          {/* Center Top - Cosmic Eye */}
-          <div ref={containerRef} className="absolute w-[612px] h-[405px] left-[calc(50%-612px/2)] bottom-[671px] overflow-hidden rounded">
-            <motion.div style={{y}} className='h-full'>
-              <Image
-                src={img1}
-                alt="Cosmic portal with person standing"
-                fill
-                style={{ objectFit: 'cover' }}
-                className="scale-110 hover:scale-[105%] -translate-y-5 transition-transform duration-300 ease-in-out"
-              />
-            </motion.div>
-          </div>
-          
-          {/* Left Top - img2 */}
-          <div className="absolute w-[299px] h-[449px] left-[calc(50%-299px/2-470.5px)] bottom-[420px] overflow-hidden rounded">
-            <motion.div style={{y}} className='h-full'>
-              <Image
-                src={img2}
-                alt="Glowing crater"
-                fill
-                style={{ objectFit: 'cover' }}
-                className="scale-110 hover:scale-[105%] transition-transform duration-300 ease-in-out"
-              />
-            </motion.div>
-          </div>
-          
-          {/* Center Left - Stone Face img6 */}
-          <div className="absolute w-[299px] h-[240px] left-[calc(50%-299px/2-156.5px)] bottom-[420px] overflow-hidden rounded">
-            <motion.div style={{y}} className='h-full'>
-              <Image
-                src={img3}
-                alt="Fallen statue in img6"
-                fill
-                style={{ objectFit: 'cover' }}
-                className="scale-[120%] hover:scale-110 -translate-y-14  transition-transform duration-300 ease-in-out"
-              />
-            </motion.div>
-          </div>
-          
-         {/* Far Right - img4ed Statue */}
-          <div className="absolute w-[299px] h-[236px] left-[calc(50%-299px/2+470.5px)] bottom-[588px] overflow-hidden rounded">
-            <motion.div style={{y}} className='h-full'>
-              <Image
-                src={img4}
-                alt="img6 sunset landscape"
-                fill
-                style={{ objectFit: 'cover' }}
-                className="scale-[115%] hover:scale-[105%] -translate-y-10  transition-transform duration-300 ease-in-out"
-              />
-            </motion.div>
-          </div>
-          
-          {/* Center Right - Crowned Statue */}
-          <div className="absolute w-[299px] h-[404px] left-[calc(50%-299px/2+157.5px)] bottom-[252px] overflow-hidden rounded">
-            <motion.div style={{y}} className='h-full'>
-              <Image
-                src={img5}
-                alt="Crowned statue"
-                fill
-                style={{ objectFit: 'cover' }}
-                className="scale-[115%] hover:scale-[105%] -translate-y-20  transition-transform duration-300 ease-in-out"
-              />
-            </motion.div>
-          </div>
-          {/* Right Top - img6 Landscape */}
-          
-          <div className="absolute w-[299px] h-[449px] left-[calc(50%-299px/2+470.5px)] bottom-[120px] overflow-hidden rounded">
-            <motion.div style={{y}} className='h-full'>
-              <Image
-                src={img6}
-                alt="img4ed statue"
-                fill
-                style={{ objectFit: 'cover' }}
-                className="scale-[120%] hover:scale-[115%] -translate-y-14 transition-transform duration-300 ease-in-out"
-              />
-            </motion.div>
-          </div>
-          
-          {/* Bottom Center - Rock Wall */}
-          <div className="absolute w-[612px] h-[405px] left-[calc(50%-612px/2-314px)] bottom-[0px] overflow-hidden rounded">
-            <motion.div style={{y}} className='h-full'>
-              <Image
-                src={img7}
-                alt="Ancient stone masks along a wall"
-                fill
-                style={{ objectFit: 'cover' }}
-                className="scale-110 hover:scale-[105%] -translate-y-24  transition-transform duration-300 ease-in-out"
-              />
-            </motion.div>
-          </div>
-          
-          {/* Bottom Right - Fire Face */}
-          <div className="absolute w-[299px] h-[236px] left-[calc(50%-299px/2+157.5px)] bottom-[0px] overflow-hidden rounded">
-            <motion.div style={{y}} className='h-full'>
-              <Image
-                src={img8}
-                alt="Face with glowing cracks"
-                fill
-                style={{ objectFit: 'cover' }}
-                className="scale-[115%] hover:scale-[105%] -translate-y-20 transition-transform duration-300 ease-in-out"
-              />
-            </motion.div>
+    <section id="gallery" className="bg-background py-24 md:py-40">
+      <div className="max-w-[1440px] w-full mx-auto px-5 md:px-10 lg:px-16">
+        <div className="flex items-center gap-4 font-body text-xs uppercase tracking-[0.3em] text-foreground-subtle mb-6">
+          <span>05 — Gallery</span>
+          <span className="flex-1 border-t border-dashed border-foreground/25" />
+          <span className="text-primary">/</span>
+        </div>
+
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12 md:mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="font-display font-semibold uppercase leading-[0.95] tracking-tight text-foreground text-[clamp(2.5rem,6vw,6rem)]"
+          >
+            Glimpses of
+            <br />
+            <span className="text-primary">DotSlash &apos;23.</span>
+          </motion.h2>
+          <div className="font-body text-sm uppercase tracking-[0.2em] text-foreground-subtle lg:pb-4">
+            Archive <span className="text-primary">/</span> 10 frames
           </div>
         </div>
-        
-        {/* Mobile Layout  */}
-        <div className="md:hidden grid grid-cols-1 gap-4 max-w-[480px] mx-auto mt-[150px] px-4">
-        <div className="absolute inset-0 -z-5 "style={{ transform: 'translateY(-1450px)', opacity:"0.50" }}>
-          <Image
-            src={background}
-            alt="Background"
-            fill
-            style={{ objectFit: 'cover' }}
-            priority 
-          />
-        </div>
-          <h1 className="font-[Unbounded] text-5xl text-white mb-8 mx-auto z-10 text-center">GLIMPSES OF DOTSLASH &apos;23</h1>
-          
-          <div className="relative aspect-[3/2] overflow-hidden rounded">
-            <div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5"
+        >
+          {plates.map((plate, i) => (
+            <div
+              key={i}
+              className={`relative overflow-hidden bg-surface border border-border ${plate.md} ${plate.mobile}`}
+            >
               <Image
-                src={img1}
-                alt="Cosmic portal with person standing"
+                src={plate.src}
+                alt={plate.alt}
                 fill
-                style={{ objectFit: 'cover' }}
-                className="transition-transform hover:scale-105 duration-300"
+                className="object-cover transition-transform duration-300 ease-in-out"
+                style={{ transform: "scale(1.02)" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.06)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1.02)";
+                }}
+                sizes="(max-width: 768px) 50vw, 25vw"
+                priority={i < 2}
               />
             </div>
-          </div>
-          
-          <div className="relative aspect-[2/3] overflow-hidden rounded">
-            <Image 
-              src={img2} 
-              alt="Glowing crater" 
-              fill
-              style={{ objectFit: 'cover' }}
-              className="transition-transform hover:scale-105 duration-300" 
-            />
-          </div>
-          
-          <div className="relative aspect-[2/3] overflow-hidden rounded">
-            <Image 
-              src={img4} 
-              alt="img4ed statue" 
-              fill
-              style={{ objectFit: 'cover' }}
-              className="transition-transform hover:scale-105 duration-300" 
-            />
-          </div>
-          
-          <div className="relative aspect-[1/1] overflow-hidden rounded">
-            <Image 
-              src={img3} 
-              alt="Fallen statue in img6" 
-              fill
-              style={{ objectFit: 'cover' }}
-              className="transition-transform hover:scale-105 duration-300" 
-            />
-          </div>
-          
-          <div className="relative aspect-[3/4] overflow-hidden rounded">
-            <Image 
-              src={img5} 
-              alt="Crowned statue" 
-              fill
-              style={{ objectFit: 'cover' }}
-              className="transition-transform hover:scale-105 duration-300" 
-            />
-          </div>
-          
-          <div className="relative aspect-[5/4] overflow-hidden rounded">
-            <Image 
-              src={img6} 
-              alt="img6 sunset landscape" 
-              fill
-              style={{ objectFit: 'cover' }}
-              className="transition-transform hover:scale-105 duration-300" 
-            />
-          </div>
-          
-          <div className="relative aspect-[3/2] overflow-hidden rounded">
-            <Image 
-              src={img7} 
-              alt="Ancient stone masks along a wall" 
-              fill
-              style={{ objectFit: 'cover' }}
-              className="transition-transform hover:scale-105 duration-300" 
-            />
-          </div>
-          
-          <div className="relative aspect-[5/4] overflow-hidden rounded">
-            <Image 
-              src={img8} 
-              alt="Face with glowing cracks" 
-              fill
-              style={{ objectFit: 'cover' }}
-              className="transition-transform hover:scale-105 duration-300" 
-            />
-          </div>
-        </div>
+          ))}
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
