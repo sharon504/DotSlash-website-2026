@@ -51,7 +51,7 @@ const Navbar = () => {
 
   const links = [
     { href: "/#about", label: "About" },
-    { href: "/events", label: "Events" },
+    { href: "/#events", label: "Events" },
     { href: "/#gallery", label: "Gallery" },
     { href: "/#collaboration", label: "Collaborate" },
   ];
