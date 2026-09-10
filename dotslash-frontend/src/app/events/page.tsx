@@ -65,7 +65,7 @@ const EventsPage = () => {
   if (events.length === 0) {
     return (
       <div className="bg-background w-full min-h-screen flex flex-col justify-center items-center px-4 py-20 pt-40">
-        <h1 className="font-display font-semibold uppercase text-foreground text-4xl md:text-6xl text-primary mb-6">
+        <h1 className="font-display font-medium uppercase text-foreground text-4xl md:text-6xl text-primary mb-6">
           Events.
         </h1>
         <div className="font-body text-foreground-muted text-xl text-center">
@@ -83,7 +83,7 @@ const EventsPage = () => {
         <span className="text-primary">/</span>
       </div>
 
-      <h1 className="font-display font-semibold uppercase leading-[0.95] tracking-tight text-foreground text-[clamp(3rem,8vw,7.5rem)] mb-14 md:mb-20">
+      <h1 className="font-display font-medium uppercase leading-[0.95] tracking-tight text-foreground text-[clamp(3rem,8vw,7.5rem)] mb-14 md:mb-20">
         Events<span className="text-primary">.</span>
       </h1>
 

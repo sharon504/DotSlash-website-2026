@@ -246,7 +246,7 @@ function Events() {
 
         <div
           ref={titleRef}
-          className="font-display font-semibold uppercase leading-[0.95] tracking-tight text-foreground text-[clamp(3rem,8vw,7.5rem)]"
+          className="font-display font-medium uppercase leading-[0.95] tracking-tight text-foreground text-[clamp(3rem,8vw,7.5rem)]"
         >
           Upcoming
           <br />

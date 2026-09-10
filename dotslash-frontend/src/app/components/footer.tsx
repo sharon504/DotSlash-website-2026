@@ -44,7 +44,7 @@ const Footer = () => {
         <div className="pt-12 md:pt-16 pb-4">
           <Link
             href="/#landing"
-            className="block font-display font-semibold uppercase leading-[0.92] tracking-tight text-logo-light text-[clamp(3rem,10vw,10rem)] hover:text-white transition-colors duration-200"
+            className="block font-display font-medium uppercase leading-[0.92] tracking-tight text-logo-light text-[clamp(3rem,10vw,10rem)] hover:text-white transition-colors duration-200"
           >
             Keep <span className="text-primary">building.</span>
           </Link>
@@ -55,7 +55,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-5 flex flex-col gap-8">
             <Image src={logo} alt="DotSlash CET" className="w-[300px] md:w-[380px] h-auto" />
-            <p className="font-body text-base text-logo-light/70 leading-relaxed max-w-md">
+            <p className="font-body text-lg text-logo-light/70 leading-relaxed max-w-md">
               The techno-cultural festival of the CSE department, CET. Built for
               people who make things.
             </p>

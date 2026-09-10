@@ -59,7 +59,7 @@ function EventCardInner({ event, layout }: EventCardProps) {
       </div>
     </div>
   ) : (
-    <p className="font-body text-sm text-foreground-muted leading-relaxed line-clamp-3">
+    <p className="font-body text-base text-foreground-muted leading-relaxed line-clamp-3">
       {typeof event.description === "string"
         ? event.description.slice(0, 260) + "..."
         : ""}
@@ -69,7 +69,7 @@ function EventCardInner({ event, layout }: EventCardProps) {
   const metaBlock = (
     <div className="flex items-end justify-between gap-4">
       <div className="flex items-baseline gap-3">
-        <span className="font-display font-semibold text-primary text-5xl md:text-6xl leading-none">
+        <span className="font-display font-medium text-primary text-5xl md:text-6xl leading-none">
           {day}
         </span>
         <span className="font-body text-xs uppercase tracking-[0.15em] text-foreground-muted leading-tight">
@@ -108,7 +108,7 @@ function EventCardInner({ event, layout }: EventCardProps) {
 
         <div className="flex flex-col flex-1 p-6 md:p-8 justify-between gap-8">
           <div>
-            <h3 className="font-display font-semibold uppercase tracking-tight text-foreground text-2xl md:text-3xl leading-tight line-clamp-2">
+            <h3 className="font-display font-medium uppercase tracking-tight text-foreground text-2xl md:text-3xl leading-tight line-clamp-2">
               {event.title}
             </h3>
             <div className="mt-4">{descriptionBlock}</div>
@@ -135,7 +135,7 @@ function EventCardInner({ event, layout }: EventCardProps) {
       )}
       <div className="flex flex-col flex-1 p-6 md:p-7 justify-between gap-6">
         <div>
-          <h3 className="font-display font-semibold uppercase tracking-tight text-foreground text-xl md:text-2xl leading-tight line-clamp-2">
+          <h3 className="font-display font-medium uppercase tracking-tight text-foreground text-xl md:text-2xl leading-tight line-clamp-2">
             {event.title}
           </h3>
           <div className="mt-3">{descriptionBlock}</div>

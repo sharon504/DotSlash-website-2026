@@ -44,7 +44,7 @@ export default function Tshirt() {
               whileInView="visible"
               viewport={{ once: true }}
               custom={0}
-              className="font-display font-semibold uppercase leading-[0.95] tracking-tight text-logo-light text-[clamp(2.5rem,6vw,6rem)]"
+              className="font-display font-medium uppercase leading-[0.95] tracking-tight text-logo-light text-[clamp(2.5rem,6vw,6rem)]"
             >
               Grab your
               <br />
@@ -57,7 +57,7 @@ export default function Tshirt() {
               whileInView="visible"
               viewport={{ once: true }}
               custom={0.15}
-              className="font-body text-base md:text-lg text-logo-light/85 leading-relaxed mt-8"
+              className="font-body text-lg md:text-xl text-logo-light/85 leading-relaxed mt-8"
             >
               DotSlash &apos;26 merch is here! This isn&apos;t just a T-shirt —
               it&apos;s a badge of honor, a symbol of the electrifying energy
@@ -71,7 +71,7 @@ export default function Tshirt() {
               whileInView="visible"
               viewport={{ once: true }}
               custom={0.25}
-              className="font-body text-base text-logo-light/85 leading-relaxed mt-4"
+              className="font-body text-lg text-logo-light/85 leading-relaxed mt-4"
             >
               Limited edition and up for grabs — once they&apos;re gone,
               they&apos;re gone. Lock in your order now and be part of something
@@ -107,7 +107,7 @@ export default function Tshirt() {
               <Image
                 src="/tees-story.jpg"
                 alt="DotSlash '26 poster"
-                className="object-cover w-full h-full opacity-70"
+                className="object-cover w-full h-full opacity-90"
                 width={1200}
                 height={1500}
                 priority

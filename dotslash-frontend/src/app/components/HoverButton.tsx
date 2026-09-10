@@ -47,7 +47,7 @@ const HoverButton = ({
   };
 
   const base =
-    "font-display font-semibold uppercase tracking-[0.08em] leading-none inline-flex items-center gap-2 border transition-all duration-200 ease-in-out select-none";
+    "font-display font-medium uppercase tracking-[0.08em] leading-none inline-flex items-center gap-2 border transition-all duration-200 ease-in-out select-none";
   const sizes = sizeClasses[resolvedSize];
   const styles =
     resolvedVariant === "primary"

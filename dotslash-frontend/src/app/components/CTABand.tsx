@@ -43,7 +43,7 @@ const CTABand = () => {
           whileInView="visible"
           viewport={{ once: true }}
           custom={0.15}
-          className="font-display font-semibold uppercase leading-[0.92] tracking-tight text-logo-light text-[clamp(3rem,9vw,9.5rem)]"
+          className="font-display font-medium uppercase leading-[0.92] tracking-tight text-logo-light text-[clamp(3rem,9vw,9.5rem)]"
         >
           Ideas deserve
           <br />

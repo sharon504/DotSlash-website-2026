@@ -68,7 +68,7 @@ const Landing = () => {
           initial="hidden"
           animate="visible"
           custom={0.35}
-          className="font-display font-semibold uppercase leading-[0.92] tracking-tight text-logo-light text-[clamp(3.5rem,10vw,11rem)]"
+          className="font-display font-medium uppercase leading-[0.92] tracking-tight text-logo-light text-[clamp(3.5rem,10vw,11rem)]"
         >
           BUILD THE
           <br />
@@ -82,7 +82,7 @@ const Landing = () => {
           custom={0.5}
           className="max-w-xl mt-8 md:mt-10"
         >
-          <p className="font-body text-base md:text-lg text-logo-light/85 leading-relaxed">
+          <p className="font-body text-lg md:text-xl text-logo-light/85 leading-relaxed">
             DotSlash &apos;26 is where technology meets thrill — a techno-cultural
             festival engineered by the CSE department, built for people who
             make things.

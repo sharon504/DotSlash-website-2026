@@ -90,7 +90,7 @@ const Navbar = () => {
           ))}
           <Link
             href="/events"
-            className="font-display font-semibold uppercase tracking-[0.08em] text-xs bg-primary text-white px-7 py-3 border border-primary transition-all duration-200 hover:bg-primary-hover hover:-translate-y-0.5"
+            className="font-display font-medium uppercase tracking-[0.08em] text-xs bg-primary text-white px-7 py-3 border border-primary transition-all duration-200 hover:bg-primary-hover hover:-translate-y-0.5"
           >
             Join now →
           </Link>
@@ -127,7 +127,7 @@ const Navbar = () => {
         <Link
           href="/events"
           onClick={() => setMenuOpen(false)}
-          className="font-display font-semibold uppercase tracking-[0.08em] text-sm bg-primary text-white px-7 py-3.5 border border-primary text-center"
+          className="font-display font-medium uppercase tracking-[0.08em] text-sm bg-primary text-white px-7 py-3.5 border border-primary text-center"
         >
           Join now →
         </Link>

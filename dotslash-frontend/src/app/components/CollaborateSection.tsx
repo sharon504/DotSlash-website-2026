@@ -26,7 +26,7 @@ const CollaborateSection = () => {
                     whileInView="visible"
                     viewport={{ once: true }}
                     custom={0}
-                    className="font-display font-semibold uppercase leading-[0.95] tracking-tight text-foreground text-[clamp(2.5rem,6vw,6rem)] mb-14 md:mb-20"
+                    className="font-display font-medium uppercase leading-[0.95] tracking-tight text-foreground text-[clamp(2.5rem,6vw,6rem)] mb-14 md:mb-20"
                 >
                     Collaborate
                     <br />
@@ -44,13 +44,13 @@ const CollaborateSection = () => {
                         className="group bg-background border border-border hover:border-primary hover:-translate-y-1 transition-all duration-200 p-8 md:p-12 flex flex-col"
                     >
                         <div className="flex items-center justify-between mb-16 md:mb-24">
-                            <span className="font-display font-semibold text-primary text-xl">01</span>
+                            <span className="font-display font-medium text-primary text-xl">01</span>
                             <span className="font-display text-primary text-2xl transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">→</span>
                         </div>
-                        <h3 className="font-display font-semibold uppercase tracking-tight text-foreground text-3xl md:text-4xl">
+                        <h3 className="font-display font-medium uppercase tracking-tight text-foreground text-3xl md:text-4xl">
                             For Sponsors
                         </h3>
-                        <p className="font-body text-base text-foreground-muted leading-relaxed mt-4 max-w-md">
+                        <p className="font-body text-lg text-foreground-muted leading-relaxed mt-4 max-w-md">
                             Partner with us to elevate DotSlash &apos;26! Gain visibility
                             among tech enthusiasts, students, and professionals while
                             supporting an exciting tech fest. Let&apos;s make an impact
@@ -71,13 +71,13 @@ const CollaborateSection = () => {
                         className="group bg-background border border-border hover:border-primary hover:-translate-y-1 transition-all duration-200 p-8 md:p-12 flex flex-col"
                     >
                         <div className="flex items-center justify-between mb-16 md:mb-24">
-                            <span className="font-display font-semibold text-primary text-xl">02</span>
+                            <span className="font-display font-medium text-primary text-xl">02</span>
                             <span className="font-display text-primary text-2xl transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">→</span>
                         </div>
-                        <h3 className="font-display font-semibold uppercase tracking-tight text-foreground text-3xl md:text-4xl">
+                        <h3 className="font-display font-medium uppercase tracking-tight text-foreground text-3xl md:text-4xl">
                             For Clubs
                         </h3>
-                        <p className="font-body text-base text-foreground-muted leading-relaxed mt-4 max-w-md">
+                        <p className="font-body text-lg text-foreground-muted leading-relaxed mt-4 max-w-md">
                             Collaborate with DotSlash &apos;26 to showcase your club&apos;s
                             vision. Host workshops, competitions, or exhibits and engage
                             with passionate tech minds.

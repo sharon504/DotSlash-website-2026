@@ -50,7 +50,7 @@ const NotJustAFest = () => {
             whileInView="visible"
             viewport={{ once: true }}
             custom={0}
-            className="font-display font-semibold uppercase leading-[0.95] tracking-tight text-foreground text-[clamp(2.5rem,6vw,6rem)]"
+            className="font-display font-medium uppercase leading-[0.95] tracking-tight text-foreground text-[clamp(2.5rem,6vw,6rem)]"
           >
             Not just
             <br />
@@ -62,7 +62,7 @@ const NotJustAFest = () => {
             whileInView="visible"
             viewport={{ once: true }}
             custom={0.15}
-            className="font-body text-base md:text-lg text-foreground-muted leading-relaxed max-w-md lg:pb-4"
+            className="font-body text-lg md:text-xl text-foreground-muted leading-relaxed max-w-md lg:pb-4"
           >
             Discover new ideas, push boundaries, and dive into experiences that
             inspire. DotSlash &apos;26 is all about exploration.
@@ -94,10 +94,10 @@ const NotJustAFest = () => {
             </div>
             <div className="p-6 md:p-8 flex items-start justify-between gap-4">
               <div>
-                <h3 className="font-display font-semibold uppercase text-foreground text-2xl md:text-3xl tracking-tight">
+                <h3 className="font-display font-medium uppercase text-foreground text-2xl md:text-3xl tracking-tight">
                   DSolve
                 </h3>
-                <p className="font-body text-sm text-foreground-muted leading-relaxed mt-3">
+                <p className="font-body text-base text-foreground-muted leading-relaxed mt-3">
                   A 12-hour hacknight to innovate, build, and compete. Team up,
                   code hard, and bring ideas to life.
                 </p>
@@ -131,10 +131,10 @@ const NotJustAFest = () => {
             </div>
             <div className="p-6 md:p-8 flex items-start justify-between gap-4">
               <div>
-                <h3 className="font-display font-semibold uppercase text-foreground text-2xl md:text-3xl tracking-tight">
+                <h3 className="font-display font-medium uppercase text-foreground text-2xl md:text-3xl tracking-tight">
                   DotNight
                 </h3>
-                <p className="font-body text-sm text-foreground-muted leading-relaxed mt-3">
+                <p className="font-body text-base text-foreground-muted leading-relaxed mt-3">
                   A night of electrifying performances and artistic expression.
                   Lose yourself in the music, dance, and creativity all around you.
                 </p>
@@ -159,15 +159,15 @@ const NotJustAFest = () => {
               className="bg-background border border-border hover:border-primary transition-colors duration-200 p-6 md:p-8 flex flex-col"
             >
               <div className="flex items-center justify-between mb-8">
-                <span className="font-display font-semibold text-primary text-xl leading-none">
+                <span className="font-display font-medium text-primary text-xl leading-none">
                   {item.index}
                 </span>
                 <span className="w-2 h-2 rounded-full bg-foreground-subtle" />
               </div>
-              <h3 className="font-display font-semibold uppercase text-foreground text-xl md:text-2xl tracking-tight">
+              <h3 className="font-display font-medium uppercase text-foreground text-xl md:text-2xl tracking-tight">
                 {item.title}
               </h3>
-              <p className="font-body text-sm text-foreground-muted leading-relaxed mt-3">
+              <p className="font-body text-base text-foreground-muted leading-relaxed mt-3">
                 {item.body}
               </p>
             </motion.div>
@@ -181,7 +181,7 @@ const NotJustAFest = () => {
             <span className="flex-1 border-t border-dashed border-foreground/25" />
             <span>Explore</span>
           </div>
-          <h2 className="font-display font-semibold uppercase leading-[0.95] tracking-tight text-foreground text-[clamp(2.2rem,5vw,5rem)]">
+          <h2 className="font-display font-medium uppercase leading-[0.95] tracking-tight text-foreground text-[clamp(2.2rem,5vw,5rem)]">
             The power to <span className="text-primary">explore.</span>
           </h2>
         </div>
