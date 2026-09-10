@@ -37,7 +37,6 @@ const Footer = () => {
           <span>
             DotSlash <span className="font-display text-primary">/</span> CET
           </span>
-          <span className="hidden md:inline">08 — Contact</span>
           <span className="text-primary">/ 2026</span>
         </div>
 
@@ -122,11 +121,6 @@ const Footer = () => {
 
         {/* Oversized closing line */}
         <div className="border-t border-logo-light/20 pt-10 pb-4">
-          <div className="flex items-center gap-4 font-body text-xs uppercase tracking-[0.3em] text-logo-light/40 mb-8">
-            <span className="text-primary">+</span>
-            <span className="flex-1 border-t border-dashed border-logo-light/25" />
-            <span>Back to top</span>
-          </div>
           <Link
             href="/#landing"
             className="block font-display font-semibold uppercase leading-[0.92] tracking-tight text-logo-light text-[clamp(3rem,10vw,10rem)] hover:text-white transition-colors duration-200"
