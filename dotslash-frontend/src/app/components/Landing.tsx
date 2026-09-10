@@ -1,41 +1,103 @@
-import React from "react";
-import { Unbounded, Noto_Sans } from "next/font/google";
-const unbounded = Unbounded({ weight: "400", style: "normal", preload: false });
-const noto_sans = Noto_Sans({ weight: "400", style: "normal", preload: false });
+"use client";
 
+import React from "react";
+import { motion } from "framer-motion";
+import HoverButton from "./HoverButton";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (delay: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut", delay },
+  }),
+};
 
 const Landing = () => {
   return (
-    <div className="landing-container relative flex justify-center mt-10 pt-10">
-      <div className="relative w-[95%]">
-
-        <video
-          className="h-screen object-cover w-full"
-          autoPlay
-          loop
-          muted
-          playsInline
+    <section className="relative flex flex-col min-h-screen bg-background pt-[120px] md:pt-[140px] overflow-hidden">
+      {/* Technical top bar */}
+      <div className="max-w-[1440px] w-full mx-auto px-5 md:px-10 lg:px-16 flex items-center justify-between font-body text-xs uppercase tracking-[0.2em] text-foreground-muted">
+        <motion.span variants={fadeUp} initial="hidden" animate="visible" custom={0}>
+          Dotslash <span className="text-primary">/</span>&apos;26
+        </motion.span>
+        <motion.span
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={0.1}
+          className="hidden md:inline"
         >
-          <source src="/videos/landing.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center text-8xl md:text-4xl font-unbounded drop-shadow-lg">
-          <h2 className="text-3xl lg:text-8xl sm:text-4xl md:text-5xl">
-            <span className="lg:mr-80    pr-[125px] lg:pr-40 md:mr-20 sm:pr-20 mt-20 lg:mt-40 md:mt-20 sm:mt-20  inline-block" > The</span>  <span className="lg:mr-20  lg:pt-10  inline-block">Singularity</span>
-            <span className="lg:pt-10 inline-block ml-20">of  </span>
-            <span className="lg:pt-10 lg:ml-40 inline-block">Innovation</span>
-          </h2>
-        </div>
+          CSE · CET
+        </motion.span>
+        <motion.span variants={fadeUp} initial="hidden" animate="visible" custom={0.2}>
+          MMXXVI
+        </motion.span>
+      </div>
 
-        <div className="absolute top-[15px] left-[30px] w-10 h-10  md:w-12 md:h-12 lg:w-20 lg:h-20 border-t-[1px] border-l-[1px] opacity-50"></div>
-        <div className="absolute top-[15px] right-[30px] w-10 h-10  md:w-12 md:h-12 lg:w-20 lg:h-20 border-t-[1px] border-r-[1px] opacity-50"></div>
-        <div className="absolute bottom-[15px] left-[30px] w-10 h-10  md:w-12 md:h-12 lg:w-20 lg:h-20 border-b-[1px] border-l-[1px] opacity-50 uppercase overflow-visible flex items-end">
-          <p className="w-fit text-nowrap pl-[1rem] pb-2">DotSlash CET</p>
-        </div>
-        <div className="absolute bottom-[15px] right-[30px] w-10 h-10  md:w-12 md:h-12 lg:w-20 lg:h-20 border-b-[1px] border-r-[1px] opacity-50 flex items-end justify-end">
-          <p className="w-fit text-nowrap pr-[1rem] pb-2">2025</p>
+      {/* Corner brackets */}
+      <div className="absolute top-24 left-4 md:left-8 w-10 h-10 md:w-14 md:h-14 border-t border-l border-foreground-muted/50 pointer-events-none" />
+      <div className="absolute top-24 right-4 md:right-8 w-10 h-10 md:w-14 md:h-14 border-t border-r border-foreground-muted/50 pointer-events-none" />
+
+      {/* Headline */}
+      <div className="relative flex-1 flex flex-col justify-center max-w-[1440px] w-full mx-auto px-5 md:px-10 lg:px-16 py-16">
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={0.25}
+          className="font-body text-sm font-medium uppercase tracking-[0.3em] text-foreground-muted mb-6 md:mb-10"
+        >
+          01 / Build
+        </motion.p>
+
+        <motion.h1
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={0.35}
+          className="font-display font-semibold uppercase leading-[0.92] tracking-tight text-foreground text-[clamp(3.5rem,10vw,11rem)]"
+        >
+          BUILD THE
+          <br />
+          <span className="text-primary">BLUE FUTURE.</span>
+        </motion.h1>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={0.5}
+          className="max-w-xl mt-8 md:mt-10"
+        >
+          <p className="font-body text-base md:text-lg text-foreground-muted leading-relaxed">
+            DotSlash &apos;26 is where technology meets thrill — a techno-cultural
+            festival engineered by the CSE department, built for people who
+            make things.
+          </p>
+        </motion.div>
+
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          animate="visible"
+          custom={0.65}
+          className="flex flex-wrap items-center gap-4 mt-10 md:mt-12"
+        >
+          <HoverButton url="/events" text="Explore" size="lg" />
+          <HoverButton url="/#about" text="Learn More" variant="secondary" size="lg" />
+        </motion.div>
+      </div>
+
+      {/* Bottom meta strip */}
+      <div className="max-w-[1440px] w-full mx-auto px-5 md:px-10 lg:px-16 pb-8">
+        <div className="border-t border-dashed border-foreground/35 pt-5 flex flex-wrap items-center justify-between font-body text-xs uppercase tracking-[0.2em] text-foreground-subtle">
+          <span>Build / Create / Break / Repeat</span>
+          <span className="hidden md:inline text-primary">/ Dotslash </span>
+          <span>Technocultural Fest 2026</span>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
