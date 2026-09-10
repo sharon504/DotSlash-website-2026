@@ -24,8 +24,8 @@ const quick = [
 ];
 
 const contact = [
-  { name: "Geevees", phone: "+91 95623 20988" },
-  { name: "Arya Vijayan", phone: "+91 77364 73139" },
+  { name: "Abel John Jose", phone: "+91 79076 12039" },
+  { name: "Sidharth Sunil", phone: "+91 82813 02559" },
 ];
 
 const Footer = () => {
