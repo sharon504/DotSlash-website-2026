@@ -79,7 +79,7 @@ export default function Welcome() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: "easeOut" as const }}
             className="font-display font-medium uppercase leading-[0.95] tracking-tight text-foreground text-[clamp(2.5rem,6vw,6rem)] lg:col-span-7"
           >
             Built for people who{" "}
@@ -90,7 +90,7 @@ export default function Welcome() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" as const }}
             className="lg:col-span-5 lg:pt-4"
           >
             <p className="font-body text-lg md:text-xl text-foreground-muted leading-relaxed">

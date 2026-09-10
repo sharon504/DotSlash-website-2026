@@ -107,18 +107,23 @@ const ShaderImage: React.FC<ShaderImageProps> = ({ imageUrl }) => {
     }
   });
 
-  const handleMouseMove = (e: MouseEvent) => {
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    setPrevMouse(mouse.clone());
-    setMouse(new THREE.Vector2(x, 1.0 - y));
-    setAberrationIntensity(1);
-  };
+  const mouseRef = useRef(mouse);
 
   useEffect(() => {
+    mouseRef.current = mouse;
+  }, [mouse]);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      setPrevMouse(mouseRef.current.clone());
+      setMouse(new THREE.Vector2(x, 1.0 - y));
+      setAberrationIntensity(1);
+    };
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouse]);
+  }, []);
 
   if (!texture) return null; 
 
