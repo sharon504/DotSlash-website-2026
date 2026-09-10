@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import HoverButton from "./HoverButton";
 import { motion } from "framer-motion";
@@ -14,7 +14,10 @@ const fadeUp = {
 
 export default function Tshirt() {
   return (
-    <section id="tshirt" className="relative bg-foreground py-24 md:py-40 overflow-hidden">
+    <section
+      id="tshirt"
+      className="relative bg-foreground py-24 md:py-40 overflow-hidden"
+    >
       <video
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay
@@ -56,10 +59,10 @@ export default function Tshirt() {
               custom={0.15}
               className="font-body text-base md:text-lg text-logo-light/85 leading-relaxed mt-8"
             >
-              DotSlash &apos;26 merch is here! This isn&apos;t just a T-shirt — it&apos;s a
-              badge of honor, a symbol of the electrifying energy that defines the
-              fest. Designed for those who live and breathe tech, it&apos;s bold,
-              exclusive, and built to make a statement.
+              DotSlash &apos;26 merch is here! This isn&apos;t just a T-shirt —
+              it&apos;s a badge of honor, a symbol of the electrifying energy
+              that defines the fest. Designed for those who live and breathe
+              tech, it&apos;s bold, exclusive, and built to make a statement.
             </motion.p>
 
             <motion.p
@@ -70,8 +73,9 @@ export default function Tshirt() {
               custom={0.25}
               className="font-body text-base text-logo-light/85 leading-relaxed mt-4"
             >
-              Limited edition and up for grabs — once they&apos;re gone, they&apos;re
-              gone. Lock in your order now and be part of something bigger.
+              Limited edition and up for grabs — once they&apos;re gone,
+              they&apos;re gone. Lock in your order now and be part of something
+              bigger.
             </motion.p>
 
             <motion.div
@@ -83,7 +87,8 @@ export default function Tshirt() {
               className="flex items-center gap-6 mt-10"
             >
               <span className="font-body text-xs uppercase tracking-[0.2em] text-logo-light/70">
-                Limited <span className="font-display text-primary">/</span> 2026
+                Limited <span className="font-display text-primary">/</span>{" "}
+                2026
               </span>
             </motion.div>
           </div>
@@ -94,7 +99,7 @@ export default function Tshirt() {
             whileInView="visible"
             viewport={{ once: true }}
             custom={0.2}
-            className="relative bg-background border border-border"
+            className="relative border border-logo-light/25"
           >
             <div className="absolute top-3 left-3 w-6 h-6 md:w-8 md:h-8 border-t border-l border-primary pointer-events-none z-10" />
             <div className="absolute bottom-3 right-3 w-6 h-6 md:w-8 md:h-8 border-b border-r border-primary pointer-events-none z-10" />
@@ -102,13 +107,13 @@ export default function Tshirt() {
               <Image
                 src="/tees-story.jpg"
                 alt="DotSlash '26 poster"
-                className="object-cover w-full h-full opacity-90"
+                className="object-cover w-full h-full opacity-70"
                 width={1200}
                 height={1500}
                 priority
               />
             </div>
-            <div className="border-t border-border px-4 py-3 flex items-center justify-between font-body text-[10px] uppercase tracking-[0.25em] text-foreground-subtle">
+            <div className="border-t border-logo-light/20 px-4 py-3 flex items-center justify-between font-body text-[10px] uppercase tracking-[0.25em] text-logo-light/70">
               <span>DotSlash CET</span>
               <span className="text-primary">No. 01 / 2026</span>
             </div>
