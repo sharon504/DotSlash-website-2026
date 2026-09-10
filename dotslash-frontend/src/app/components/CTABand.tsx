@@ -75,7 +75,7 @@ function LinkJoin() {
         variant="light"
       />
       <p className="font-body text-sm uppercase tracking-[0.2em] text-white/80">
-        March 2026 <span className="font-display">/</span> CET
+        September 2026 <span className="font-display">/</span> CET
       </p>
     </>
   );

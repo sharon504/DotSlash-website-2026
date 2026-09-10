@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'DotSlash-2025',
 
-  projectId: 'fvk05rjc',
+  projectId: '7or5w6ow',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
